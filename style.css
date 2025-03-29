@@ -1,6 +1,9 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    scroll-behavior: smooth;
 }
 
 .navbar {
@@ -52,4 +55,25 @@ body {
 .navbar a:hover {
     background-color: #16213e;
     border-radius: 5px;
+}
+
+.about-section {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: black;
+}
+
+.about-section h1 {
+    font-size: 3rem;
+    color: #00aaff;
+}
+
+.about-section p {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+#typewriter {
+    color: #ffcc00;
+    font-weight: bold;
 }
