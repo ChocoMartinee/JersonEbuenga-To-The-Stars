@@ -1,4 +1,4 @@
-const descriptions = ["Computer enthusiast", "Game developer", "Gyatt Enthusiast"];
+const descriptions = ["Computer Enthusiast", "Game Developer", "Gyatt Enthusiast"];
 let index = 0;
 let charIndex = 0;
 const typewriterElement = document.getElementById("typewriter");
