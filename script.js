@@ -1,4 +1,4 @@
-const descriptions = ["Computer Enthusiast", "Game Developer", "Gyatt Enthusiast"];
+const descriptions = ["Computer Enthusiast", "Game Developer", "Gyatt Enjoyer"];
 let index = 0;
 let charIndex = 0;
 const typewriterElement = document.getElementById("typewriter");
@@ -26,4 +26,7 @@ function eraseEffect() {
 
 document.addEventListener("DOMContentLoaded", () => {
     typeEffect();
+    // Scroll to the overview section
+    const overviewSection = document.getElementById("overview");
+    overviewSection.scrollIntoView({ behavior: "smooth" });
 });

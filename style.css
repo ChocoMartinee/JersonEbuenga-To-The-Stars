@@ -11,7 +11,11 @@ body {
     align-items: center;
     justify-content: space-between;
     background-color: #1a1a2e;
-    padding: 10px 20px;
+    padding: 10px 5%; /* Adjust padding to move contents closer to the center */
+    position: fixed; /* Make the navbar fixed */
+    top: 0;
+    width: 100%; /* Ensure it spans the full width */
+    z-index: 1000; /* Ensure it stays above other content */
 }
 
 .navbar-brand {
@@ -38,6 +42,8 @@ body {
     padding: 0;
     display: flex;
     justify-content: space-around;
+    margin-right: 10%; /* Move the buttons 5% closer to the center */
+    gap: 20px; /* Add spacing between buttons */
 }
 
 .navbar li {
@@ -48,8 +54,9 @@ body {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    padding: 10px 15px;
+    padding: 10px 20px; /* Increase padding for better spacing */
     transition: background-color 0.3s;
+    font-size: 1.5rem; /* Increase font size for navbar buttons */
 }
 
 .navbar a:hover {
@@ -60,20 +67,112 @@ body {
 .about-section {
     text-align: center;
     padding: 100px 20px;
-    background-color: black;
+    background-color: #0d0d1a;
+    color: white;
+}
+
+.about-section h2 {
+    font-size: 1.5rem;
+    color: #888;
+    margin-bottom: 10px;
 }
 
 .about-section h1 {
     font-size: 3rem;
-    color: #00aaff;
+    color: #ffffff;
 }
 
-.about-section p {
-    font-size: 1.5rem;
-    margin: 10px 0;
+.about-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.about-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #6c63ff;
+    box-shadow: 0 0 20px #6c63ff;
+}
+
+.about-text {
+    max-width: 650px;
+    text-align: left;
+}
+
+.about-text p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.about-links {
+    text-align: center;
+}
+
+.about-links .btn {
+    text-decoration: none;
+    color: white;
+    background-color: #6c63ff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.about-links .btn:hover {
+    background-color: #4b47cc;
 }
 
 #typewriter {
     color: #ffcc00;
     font-weight: bold;
+}
+
+#typewriter::after {
+    content: "|";
+    display: inline-block;
+    margin-left: 2px;
+    animation: blink 1s steps(1, start) infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+.footer-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #1a1a2e;
+    color: white;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+#about {
+    height: 100vh; /* Make the "Hi, I'm Jerson" section take the full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#overview {
+    margin-top: 100vh; /* Push the "Meet Jerson" section below the viewport */
 }
