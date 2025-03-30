@@ -260,7 +260,7 @@ body {
     position: absolute;
     width: 80px; /* Adjust size for the circle */
     height: 80px; /* Adjust size for the circle */
-    background-color: #6c63ff; /* Remove background color */
+    background-color: #ffffff; /* background color */
     background-image: var(--circle-image); /* Use CSS variable for the image */
     background-size: cover; /* Ensure the image covers the circle */
     background-position: center; /* Center the image */
