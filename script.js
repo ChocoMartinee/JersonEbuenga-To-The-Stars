@@ -26,6 +26,15 @@ function eraseEffect() {
 
 document.addEventListener("DOMContentLoaded", () => {
     typeEffect();
+
+    // Set background images for timeline circles
+    const timelineItems = document.querySelectorAll(".timeline-item");
+    timelineItems.forEach(item => {
+        const imageUrl = item.getAttribute("data-image");
+        if (imageUrl) {
+            item.style.setProperty("--circle-image", `url(${imageUrl})`);
+        }
+    });
 });
 
 function handleScroll() {
