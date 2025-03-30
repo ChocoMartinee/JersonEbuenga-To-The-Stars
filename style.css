@@ -166,13 +166,144 @@ body {
 }
 
 #about {
-    height: 100vh; /* Make the "Hi, I'm Jerson" section take the full viewport height */
+    height: 100vh; /* Full viewport height */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    padding-top: 0; /* Remove any additional top padding */
 }
 
 #overview {
-    margin-top: 100vh; /* Push the "Meet Jerson" section below the viewport */
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    margin-top: 0; /* Remove any extra margin */
+}
+
+.about-left, .about-links {
+    opacity: 0; /* Initially hidden */
+    transform: translateX(-50px); /* Start slightly off-screen to the left */
+    transition: all 0.8s ease-in-out; /* Smooth transition */
+}
+
+.about-text, #overview h1 {
+    opacity: 0; /* Initially hidden */
+    transform: translateX(50px); /* Start slightly off-screen to the right */
+    transition: all 0.8s ease-in-out; /* Smooth transition */
+}
+
+.about-left.scrolled, .about-links.scrolled {
+    opacity: 1; /* Fully visible */
+    transform: translateX(0); /* Move to the final position */
+}
+
+.about-text.scrolled, #overview h1.scrolled {
+    opacity: 1; /* Fully visible */
+    transform: translateX(0); /* Move to the final position */
+}
+
+.education-section {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: #0d0d1a;
+    color: white;
+}
+
+.education-section h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.timeline {
+    position: relative;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #6c63ff;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 20px 40px;
+    box-sizing: border-box;
+}
+
+.timeline-item.left {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item.right {
+    left: 50%;
+    text-align: left;
+}
+
+.timeline-item::before {
+    content: attr(data-year); /* Use the year from the data attribute */
+    position: absolute;
+    width: 50px; /* Adjust size for the circle */
+    height: 50px; /* Adjust size for the circle */
+    background-color: #6c63ff; /* Circle background color */
+    border-radius: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Text color for the year */
+    font-size: 0.8rem; /* Adjust font size */
+    font-weight: bold;
+    text-align: center;
+}
+
+.timeline-item.left::before {
+    right: -10px;
+}
+
+.timeline-item.right::before {
+    left: -10px;
+}
+
+.timeline-content {
+    background-color: #1a1a2e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-in-out;
+}
+
+.timeline-item.scrolled .timeline-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-content h2 {
+    font-size: 1.5rem;
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+
+.timeline-content p {
+    font-size: 1.2rem;
+    margin: 5px 0;
 }

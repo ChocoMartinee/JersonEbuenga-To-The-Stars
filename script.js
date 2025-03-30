@@ -26,7 +26,70 @@ function eraseEffect() {
 
 document.addEventListener("DOMContentLoaded", () => {
     typeEffect();
-    // Scroll to the overview section
+});
+
+function handleScroll() {
     const overviewSection = document.getElementById("overview");
-    overviewSection.scrollIntoView({ behavior: "smooth" });
+    const aboutLeft = document.querySelector(".about-left");
+    const aboutLinks = document.querySelector(".about-links");
+    const aboutText = document.querySelector(".about-text");
+    const overviewHeading = document.querySelector("#overview h1");
+
+    const sectionTop = overviewSection.getBoundingClientRect().top;
+    const viewportHeight = window.innerHeight;
+
+    // Adjust the multiplier (e.g., 0.6) to control when the animation triggers
+    if (sectionTop <= viewportHeight * 0.2) {
+        aboutLeft.classList.add("scrolled");
+        aboutLinks.classList.add("scrolled");
+        aboutText.classList.add("scrolled");
+        overviewHeading.classList.add("scrolled");
+    }
+}
+
+document.addEventListener("scroll", handleScroll);
+
+function handleEducationScroll() {
+    const timelineItems = document.querySelectorAll(".timeline-item");
+    const triggerPoint = window.innerHeight / 1.3; // Trigger animation when section is in view
+
+    timelineItems.forEach((item, index) => {
+        const itemTop = item.getBoundingClientRect().top;
+
+        if (itemTop < triggerPoint) {
+            setTimeout(() => {
+                item.classList.add("scrolled");
+            }, index * 300); // Delay each item for a staggered effect
+        }
+    });
+}
+
+document.addEventListener("scroll", handleEducationScroll);
+
+document.querySelectorAll('.navbar a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1); // Get the target section ID
+        let targetElement = document.getElementById(targetId);
+
+        // Redirect "About" button to the "Meet Jerson" section
+        if (targetId === 'about') {
+            targetElement = document.getElementById('overview');
+        }
+
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth', // Enable smooth scrolling
+                block: 'start' // Scroll to the top of the section
+            });
+        }
+    });
+});
+
+document.querySelector('.navbar-name').addEventListener('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0, // Scroll to the very top of the page
+        behavior: 'smooth' // Enable smooth scrolling
+    });
 });
